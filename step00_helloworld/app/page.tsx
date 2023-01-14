@@ -1,11 +1,10 @@
-import Image from 'next/image'
 import { Inter } from '@next/font/google'
-//import styles from './page.module.css'
+import styles from './page.module.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   return (
-    <div>Hello World from Zia Khan</div>
+    <h1 className={styles.main}>Hello from Sohail Ishaque from PIAIC</h1>
   )
 }
