@@ -1,7 +1,7 @@
 export default function GiveName() {
     return (
       <div>
-            My name is Zia 
+            My name is Sohail
       </div>
     )
   }
