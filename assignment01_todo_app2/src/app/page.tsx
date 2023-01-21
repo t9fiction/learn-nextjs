@@ -44,11 +44,12 @@ function ToDo({ todo }: any) {
   console.log("todo", todo);
   return (
     <Link href={`/todos/${id}`}>
+      <h1>---{task}---</h1>
       <div>
-        <h2>{task}</h2>
         <h5>{created}</h5>
-        <p>{content}</p>
+        {/* <p>{content}</p> */}
       </div>
+      <br />
     </Link>
   );
 }
