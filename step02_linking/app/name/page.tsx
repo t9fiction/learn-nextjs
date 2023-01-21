@@ -1,5 +1,5 @@
 'use client';
-
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
 export default function GiveName() {
@@ -8,9 +8,10 @@ export default function GiveName() {
       <div>
             My name is Zia.
             <br/>
-            <button type="button" onClick={() => router.push('/name/address')}>
+            <Link href='/'>Home</Link>
+            {/* <button type="button" onClick={() => router.push('/name/address')}>
               Get Address
-            </button>
+            </button> */}
       
       </div>
     )
