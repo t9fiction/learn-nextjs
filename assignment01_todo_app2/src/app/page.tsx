@@ -1,6 +1,9 @@
+// "use client";
+// import { Box } from "@chakra-ui/react";
 import { Inter } from "@next/font/google";
 import Link from "next/link";
 import PocketBase from "pocketbase";
+import CreateToDo from "./todos/CreateToDo";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,11 +26,12 @@ async function getDescription() {
   return records;
 }
 
+
 const Home = async () => {
   const todo = await getDescription();
   console.log("ToDo", todo);
   return (
-    <>
+    <div>
       <h2>ToDo List</h2>
       <div>
         {todo?.map((e) => {
@@ -35,7 +39,8 @@ const Home = async () => {
           return <ToDo key={e.id} todo={e} />;
         })}
       </div>
-    </>
+      <CreateToDo />
+    </div>
   );
 };
 
@@ -43,15 +48,24 @@ function ToDo({ todo }: any) {
   const { id, task, content, created } = todo || {};
   console.log("todo", todo);
   return (
-    <Link href={`/todos/${id}`}>
-      <h1>---{task}---</h1>
-      <div>
-        <h5>{created}</h5>
-        {/* <p>{content}</p> */}
-      </div>
-      <br />
-    </Link>
+    <div>
+      <Link href={`/todos/${id}`}>
+        <h1> ToDo: {task}</h1>
+        <div>
+          <h5>{created}</h5>
+          {/* <p>{content}</p> */}
+        </div>
+      </Link>
+    </div>
   );
 }
 
 export default Home;
+
+// Following are used incase we don't use fetch.
+export const dynamic = "auto",
+  dynamicParams = true,
+  revalidate = 60,
+  fetchCache = "auto",
+  runtime = "nodejs",
+  preferredRegion = "auto";

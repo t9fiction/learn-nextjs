@@ -1,21 +1,28 @@
-import React, { ReactElement } from "react";
-import ToDoo from "./todo";
+"use client";
+import React, { ReactElement, useEffect, useState } from "react";
+import UpdateToDo from "./todo";
 
 const getTodos = async () => {
-  let todos = await fetch("http://localhost:3001/api/todo/list");
+  let todos = await fetch("http://127.0.0.1:3001/api/todo/list");
   console.log(todos);
   return todos.json();
 };
 
-export const ToDo = async () => {
-  const { todos } = await getTodos();
-  console.log(todos);
+export const ListToDo = async () => {
+  const [toDos, setToDos] = useState()
+  useEffect(() => {
+    const start = async () => {
+      const { todos } = await getTodos();
+      setToDos(todos)
+    };
+  }, []);
+  
   return (
     <div style={{ padding: "10px", margin: "10px" }}>
-      {todos.map((t: any) => {
+      {toDos.map((t: any) => {
         return (
           <li key={t.id} style={{ padding: "10px" }}>
-            <ToDoo todo={t} />
+            <UpdateToDo todo={t} />
           </li>
         );
       })}

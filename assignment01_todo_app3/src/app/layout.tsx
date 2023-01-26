@@ -1,3 +1,7 @@
+"use client";
+import ChakraWrapper from "../components/_app";
+import theme from "@/components/theme";
+
 export default function RootLayout({
   children,
 }: {
@@ -10,7 +14,9 @@ export default function RootLayout({
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head />
-      <body>{children}</body>
+      <body>
+        <ChakraWrapper theme={theme}>{children}</ChakraWrapper>
+      </body>
     </html>
   );
 }

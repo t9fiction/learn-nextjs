@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 
 async function getToDo(todoId: string) {
@@ -12,6 +13,7 @@ async function getToDo(todoId: string) {
 
 const ToDoPage = async ({ params }: any) => {
   const todo = await getToDo(params.id);
+  const id_ = todo.id
   return (
     <div>
       <h1>Task/{todo.id}</h1>

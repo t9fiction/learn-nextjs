@@ -2,14 +2,14 @@
 import React from "react";
 
 async function update(id: any, isDone: any) {
-  await fetch(`http://localhost:3001/api/todo/update`, {
+  await fetch(`http://127.0.0.1:3001/api/todo/update`, {
     method: "POST",
     mode: "no-cors",
     body: JSON.stringify({ id, isDone }),
   });
 }
 
-const ToDoo = ({ todo }: any) => {
+const UpdateToDo = ({ todo }: any) => {
   return (
     <div>
       <input
@@ -23,4 +23,4 @@ const ToDoo = ({ todo }: any) => {
   );
 };
 
-export default ToDoo;
+export default UpdateToDo;
