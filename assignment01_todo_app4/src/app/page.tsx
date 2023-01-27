@@ -1,17 +1,22 @@
 "use client";
-import Image from "next/image";
 import { Inter } from "@next/font/google";
-import styles from "./page.module.css";
 import React from "react";
 import ToDoList from "@/components/ToDoList";
-import { Box } from "@chakra-ui/react";
+import { Box, ColorModeScript, Icon } from "@chakra-ui/react";
+import theme from "@/components/theme";
+import { MoonIcon, SunIcon } from "@chakra-ui/icons";
+import { useColorMode } from "@chakra-ui/color-mode";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-  
+  const { colorMode, toggleColorMode } = useColorMode();
   return (
-    <Box maxW='4xl' margin={['auto']} p={5}>
+    <Box maxW="4xl" margin={["auto"]} p={5}>
+      <ColorModeScript initialColorMode={theme.config.initialColorMode} />
+      <Icon aria-label="Toggle Mode" onClick={toggleColorMode}>
+        {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
+      </Icon>
       <ToDoList />
     </Box>
   );
