@@ -15,7 +15,7 @@ export default function Home() {
     <Box maxW="4xl" margin={["auto"]} p={5}>
       <ColorModeScript initialColorMode={theme.config.initialColorMode} />
       <Icon aria-label="Toggle Mode" onClick={toggleColorMode}>
-        {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
+        {colorMode === "dark" ? <MoonIcon /> : <SunIcon />}
       </Icon>
       <ToDoList />
     </Box>
